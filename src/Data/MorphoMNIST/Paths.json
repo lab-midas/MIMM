@@ -1,0 +1,24 @@
+{
+    "global_trainPath" : "/MIMM/src/Data/MorphoMNIST/global/train-images-idx3-ubyte.gz",
+    "global_trainPathLabel" : "/MIMM/src/Data/MorphoMNIST/global/train-labels-idx1-ubyte.gz",
+    "global_trainPertPathLabel" : "/MIMM/src/Data/MorphoMNIST/global/train-pert-idx1-ubyte.gz",
+    "global_testPath" : "/MIMM/src/Data/MorphoMNIST/global/t10k-images-idx3-ubyte.gz",
+    "global_testPathLabel": "/MIMM/src/Data/MorphoMNIST/global/t10k-labels-idx1-ubyte.gz",
+    "global_testPertPathLabel" : "/MIMM/src/Data/MorphoMNIST/global/t10k-pert-idx1-ubyte.gz",
+
+    "plain_trainPath" : "/MIMM/src/src/Data/MorphoMNIST/plain/plain/train-images-idx3-ubyte.gz",
+    "plain_trainPathLabel" : "/MIMM/src/Data/MorphoMNIST/plain/train-labels-idx1-ubyte.gz",
+    "plain_testPath" : "/MIMM/src/Data/MorphoMNIST/plain/t10k-images-idx3-ubyte.gz",
+    "plain_testPathLabel": "/MIMM/src/Data/MorphoMNIST/plain/t10k-labels-idx1-ubyte.gz",
+
+    "thin_trainPath" : "/MIMM/src/Data/MorphoMNIST/thin/train-images-idx3-ubyte.gz",
+    "thin_trainPathLabel" : "/MIMM/src/Data/MorphoMNIST/thin/train-labels-idx1-ubyte.gz",
+    "thin_testPath" : "/MIMM/src/Data/MorphoMNIST/thin/t10k-images-idx3-ubyte.gz",
+    "thin_testPathLabel": "/MIMM/src/Data/MorphoMNIST/thin/t10k-labels-idx1-ubyte.gz",
+
+    "thick_trainPath" : "/MIMM/src/Data/MorphoMNIST/thic/train-images-idx3-ubyte.gz",
+    "thick_trainPathLabel" : "/MIMM/src/Data/MorphoMNIST/thic/train-labels-idx1-ubyte.gz",
+    "thick_testPath" : "/MIMM/src/Data/MorphoMNIST/thic/t10k-images-idx3-ubyte.gz",
+    "thick_testPathLabel": "/MIMM/src/Data/MorphoMNIST/thic/t10k-labels-idx1-ubyte.gz"
+
+}
