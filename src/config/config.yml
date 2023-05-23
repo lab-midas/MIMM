@@ -1,0 +1,60 @@
+wandbProjectName:
+  desc: Name of the project for wandb
+  value: MIMM
+wandbGroupName:
+  desc: Name of wandb group
+  value: MTL_MI
+randomSeed:
+  desc: Set random init seed
+  value: 42
+training_dataset:
+  desc: Set training dataset
+  value: MorphoMNIST
+trainType:
+  desc: Type of training
+  value: MTL_MI
+numberClasses:
+  desc: Number of classification classes
+  value: 2
+numberClassesConfounding:
+  desc: Number of confounding classes
+  value: 2
+useConfoundedDataset:
+  desc: True, if dataset should be confounded
+  value: True
+confoundingRatio:
+  desc: Confounding ratio per class
+  value: 0.9
+k_fold:
+  desc: Number of runs
+  value: 5
+k:
+  desc: k-fold nr
+  value: 0
+batchSize:
+  desc: Batch
+  value: 1000
+epochs:
+  desc: Epochs
+  value: 1000
+mi_epochs:
+  desc: Number of epochs to train MI only
+  value: 500
+feature_vector_length:
+  desc: Length of feature vectore
+  value: 4
+nr_batches_MI_train_multiple:
+  desc: defines the number of training MI model, before training the feature encoder
+  value: [3]
+nr_batches_MI_train:
+  desc: Update with current value from nr_batches_MI_train_multiple
+  value: 0
+mi_lambdas:
+  desc: Defines ratio of mi_loss added to loss
+  value: [0.5]
+mi_lambda:
+  desc: Update with current mi_lambda value from mi_lambdas
+  value: 0
+input_img_size:
+  desc: Size of input image
+  value: 28
