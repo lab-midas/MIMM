@@ -14,10 +14,10 @@ trainType:
   desc: Type of training
   value: MTL_MI
 numberClasses:
-  desc: Number of classification classes
+  desc: Number of primary task (PT) classes
   value: 2
 numberClassesConfounding:
-  desc: Number of confounding classes
+  desc: Number of spuriously correlated task (SC) classes
   value: 2
 useConfoundedDataset:
   desc: True, if dataset should be confounded
@@ -26,32 +26,32 @@ confoundingRatio:
   desc: Confounding ratio per class
   value: 0.9
 k_fold:
-  desc: Number of runs
+  desc: Number of cross-validation runs
   value: 5
 k:
   desc: k-fold nr
   value: 0
 batchSize:
-  desc: Batch
+  desc: Number of batchs
   value: 1000
 epochs:
-  desc: Epochs
+  desc: Number of Epochs
   value: 1000
 mi_epochs:
-  desc: Number of epochs to train MI only
+  desc: Number of epochs to train MINE only
   value: 500
 feature_vector_length:
-  desc: Length of feature vectore
+  desc: Length of feature vector
   value: 4
 nr_batches_MI_train_multiple:
   desc: defines the number of training MI model, before training the feature encoder
-  value: [3]
+  value: [3,5]
 nr_batches_MI_train:
   desc: Update with current value from nr_batches_MI_train_multiple
   value: 0
 mi_lambdas:
   desc: Defines ratio of mi_loss added to loss
-  value: [0.5]
+  value: [0.3, 0.5]
 mi_lambda:
   desc: Update with current mi_lambda value from mi_lambdas
   value: 0
