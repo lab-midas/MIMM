@@ -11,7 +11,7 @@ from torch import optim
 from torchvision import models
 
 import config.Load_Parameter
-from Models.FeatureEncoder import FeatureEncoderNetwork
+from Models.FeatureEncoder import FeatureEncoderNetwork, FeatureSelectionNetworkExtended
 from Models.ClassificationHeads import PTModel, SCModel
 from Models.MINE import MIComputer
 from Training.Loss_Utils import crossEntropyLoss_for_MTL
@@ -23,12 +23,16 @@ def mtl_mi_train(trainLoader, valLoader):
     # Get the hyperparameters saved in yaml.
     params = config.Load_Parameter.params
     torch.manual_seed(params.randomSeed)
+    training_dataset = params.training_dataset
 
     # Set up model
-    if "MTL".casefold() in params.trainType.casefold():
+    if "MorphoMNIST".casefold() in training_dataset.casefold():
         fv_model = FeatureEncoderNetwork().cuda()
+    elif "FashionMNIST".casefold() in training_dataset.casefold():
+        fv_model = FeatureSelectionNetworkExtended().cuda()
     else:
-        raise ValueError('No valid trainType selected. No model found.')
+        raise ValueError('No valid trainType selected. No model found')
+
     
     pt_model = PTModel().cuda()
     sc_model = SCModel().cuda()
@@ -164,8 +168,8 @@ def mtl_mi_train(trainLoader, valLoader):
             y_val_true_sc = torch.cat(y_val_true_sc)
 
             # Compute average MI and MI_loss
-            len_val = len(valLoader.dataset.dataset) if "ColouredMNIST".casefold() not in params.training_dataset.casefold() else len(valLoader.dataset)
-            len_train = len(trainLoader.dataset.dataset) if "ColouredMNIST".casefold() not in params.training_dataset.casefold() else len(valLoader.dataset)
+            len_val = len(valLoader.dataset.dataset) if "BiasedMNIST".casefold() not in params.training_dataset.casefold() else len(valLoader.dataset)
+            len_train = len(trainLoader.dataset.dataset) if "BiasedMNIST".casefold() not in params.training_dataset.casefold() else len(valLoader.dataset)
 
             y_val_mi_mean = (val_mis * valLoader.batch_size) / len_val
             y_val_mi_mean_loss = (
@@ -190,7 +194,7 @@ def mtl_mi_train(trainLoader, valLoader):
             print(
                 f'Validation epoch: {epoch:2}/{num_epochs} [{10*batch:6}/{len_train}] Validation loss:  {val_loss.item():.3f} val_acc_pt: {val_accuracy_pt:.3f} val_acc_sc: {val_accuracy_sc:.3f} val_MI: {y_val_mi_mean.item():.3f}')
 
-            if params.training_dataset == "ColouredMNIST":
+            if params.training_dataset == "BiasedMNIST":
                 if val_loss < best_val_loss:
                     best_epoch = epoch
                     best_accuracy_pt = val_accuracy_pt

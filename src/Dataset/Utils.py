@@ -25,6 +25,15 @@ def logDataLoaderInfo(dataLoader):
         elif elem[1] == 1 and elem[2]==1:
             d += 1
     print(a,b,c,d)
+    
+def logDataLoaderInfoFM(dataLoader):
+    l = np.zeros((10,10), dtype=int)
+    for elem in dataLoader.dataset.dataset:
+        for i in range(10):
+            for j in range(10):
+                if elem[1]==i and elem[2]==j:
+                    l[i,j]+=1
+    print(l)
 
 def _load_uint8(f):
     _, ndim = struct.unpack('BBBB', f.read(4))[2:]

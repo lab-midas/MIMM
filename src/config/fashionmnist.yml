@@ -1,0 +1,65 @@
+wandbProjectName:
+  desc: Name of the project for wandb
+  value: CAUSAL_MI
+wandbGroupName:
+  desc: Name of group
+  value: FM_MTL
+training_dataset:
+  desc: Fashion_MNIST, MNIST
+  value: FashionMNIST
+trainType:
+  desc: Type of training
+  value: MTL_MI
+numberClasses:
+  desc: Number of classification classes
+  value: 10
+numberClassesConfounding:
+  desc: Number of confounding classes
+  value: 10
+useConfoundedDataset:
+  desc: True, if dataset should be confounded
+  value: True
+confoundingRatio:
+  desc: Confounding ratio per class
+  value: 0.1
+nr_k_cross_sets:
+  desc: Number of runs
+  value: 10
+k:
+  desc: k-fold nr
+  value: 0
+batchSize:
+  desc: Batch
+  value: 10
+epochs:
+  desc: Epochs
+  value: 1000
+mi_epochs:
+  desc: Mi convergence epochs
+  value: 500
+randomSeed:
+  desc: Set random init seed
+  value: 42
+testType:
+  desc: Testing and evaluation (testing - rotation:0, evaluation - roation:1)
+  value: [Test, Val, Val, Val, Val, Val, Val, Val, Val, Val]
+rotation_step:
+  desc: Rotation of dataset confounding
+  value: [0,1, 2,3,4,5,6,7,8,9]
+feature_vector_length:
+  desc: Length of feature vectore
+  value: 20
+nr_batches_MI_train_multiple:
+  desc: Defines the number of training MI model, before training fv, pt, sc
+  value: [3, 5]
+nr_batches_MI_train: 
+  desc: defines the number of training MI model, before training fv, pt, sc
+  value: 0
+mi_lambdas:
+  desc: Defines ratio of mi_loss added to loss
+  value: [0.5]
+mi_lambda:
+  desc: Defines ratio of mi_loss added to loss
+  value: 0
+input_img_size:
+  value: 28
